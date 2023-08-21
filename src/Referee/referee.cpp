@@ -38,7 +38,7 @@ int Referee::Work()
     if(next_lap == true)
     {
         showResults(res);
-        std::this_thread::sleep_for(300ms);
+        std::this_thread::sleep_for(700ms);
         ++lap_number;
 
         if(lap_number > number_of_laps)
@@ -64,11 +64,12 @@ void Referee::showResults(Results *results)
         std::cout << "\n\n WYNIKI WYSCIGU PO " << lap_number << " OKRAZENIU:\n";
     else
         std::cout << "\n\n WYNIKI WYSCIGU PO STARCIE:\n";
+    int count = 1;
     for(auto it = sorted_multimap.rbegin(); it != sorted_multimap.rend(); ++it)
     {
         if(-1 == it->first)
-            std::cout << "Kierowca: " << it->second << "   CRASHED\n";
+            std::cout << " -- " << it->second << "   CRASHED\n";
         else
-            std::cout << "Kierowca: " << it->second << "    dystans  " << it->first << "\n";
+            std::cout << count++ << ": " << it->second << "    dystans  " << it->first << "\n";
     }
 }

@@ -22,7 +22,7 @@ int Fatum::Work()
 
 
     int crash_probability = crash_dist(mt);
-    if(crash_probability < 100)
+    if(crash_probability < 95)
     {
         unsigned int lost_distance = distance_dist(mt);
         int lost_driver = driver_dist(mt);
@@ -31,7 +31,7 @@ int Fatum::Work()
         for(int i = 0; i < lost_driver; ++i)
             ++start_it;
 
-        if(lost_distance < 50) {
+        if(lost_distance < 45) {
             start_it->second = -1;
             std::cout << " >>  Car breakdown: " << start_it->first << "  <<\n";
         }
