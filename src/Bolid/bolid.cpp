@@ -1,4 +1,4 @@
-#include "bolid.h"
+ #include "bolid.h"
 #include <stdlib.h>
 #include "results.h"
 

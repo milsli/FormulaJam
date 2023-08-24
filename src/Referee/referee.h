@@ -2,6 +2,7 @@
 #define REFEREE_H
 
 #include<jam_module.h>
+#include <map>
 
 struct Results;
 
@@ -13,11 +14,17 @@ public:
     int Cleanup( void );
 
 private:
-    void showResults(Results *results);
+    void showRaceResults(Results *results);
+    void showStartResults(Results *results);
+    int newRace(Results *results);
+    void setRanking(Results *results);
 
 private:
+    int number_of_races;
     int number_of_laps;
     int lap_number;
+    int current_race;
+    std::map<std::string, int> ranking;
 };
 
 JAM_MODULE_ENTRY( Referee )
